@@ -1,10 +1,12 @@
 'use client'
 
 const Employees = ({params}) => {
+  const string = decodeURIComponent(params.details);
+
 
   return (
     <>
-    <h1>Hi {params.details}</h1>
+    <h1>Hi {string}</h1>
     
     </>
   )
