@@ -13,12 +13,13 @@ export async function GET(req,value){
 export const DELETE = (req,val) => {
     let data = val.params.empid;
     if(data){
-        return NextResponse.json({Result : "Bariya"},{status : 200})
+        return NextResponse.json(
+            {result : "Bariya",success : true},
+            {status : 200})
     }else{
-        return NextResponse.json({
-            result : "Chal nikal sahi se dhaal"
-        },{
-            status : 400
-        })
+        return NextResponse.json(
+            {result : "Chal nikal sahi se dhaal",success : false},
+            {status : 400}
+        )
     }
 }
