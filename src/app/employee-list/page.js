@@ -1,3 +1,4 @@
+import Link from "next/link"
 import GetButton from "../components/GetButton"
 async function getData(){
     let response = await fetch('http://localhost:3000/api/employee/')
@@ -15,6 +16,7 @@ const page = async () => {
                 <>
                 <h2>{item.name}</h2>
                 <GetButton id={item.id}/>
+                <Link href={`/employee-list/${item.id}/update`}>Edit</Link>
                 </>
             </div>
         )

@@ -12,9 +12,38 @@ export async function GET(req,value){
 }
 export const DELETE = (req,val) => {
     let data = val.params.empid;
+    console.log(req.json())
     if(data){
         return NextResponse.json(
             {result : "Bariya",success : true},
+            {status : 200})
+    }else{
+        return NextResponse.json(
+            {result : "Chal nikal sahi se dhaal",success : false},
+            {status : 400}
+        )
+    }
+}
+export const POST = (req,val) => {
+    let data = val.params.empid;
+    console.log(req.json())
+   if(body.name || body.age){
+        return NextResponse.json(
+            {result : "Bariya",success : true, data : body},
+            {status : 200})
+    }else{
+        return NextResponse.json(
+            {result : "Chal nikal sahi se dhaal",success : false},
+            {status : 400}
+        )
+    }
+}
+export const PUT = async (req,val) =>{
+    let data = val.params.empid;
+    const body = await req.json()
+    if(data){
+        return NextResponse.json(
+            {result : "Bariya",success : true, data : req},
             {status : 200})
     }else{
         return NextResponse.json(
