@@ -1,0 +1,7 @@
+import mongoose from "mongoose";
+
+const emmployeeModel = mongoose.Schema({
+    name:String,
+    age:Number
+})
+export const Employee = mongoose.models.employees ||  mongoose.model('employees',emmployeeModel);
