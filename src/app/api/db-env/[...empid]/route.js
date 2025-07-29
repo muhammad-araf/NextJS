@@ -10,5 +10,12 @@ export const PUT = async (req,val) => {
     const newdata = await req.json()
     await mongoose.connect(connectionString);
     const result = await Employee.findOneAndUpdate(id,newdata);
-    return NextResponse.json({success : "chala gaya tera data chill kr",yehle: result})
+    return NextResponse.json({success : true,result: result})
+}
+export const GET = async (req,val) => {
+    const empID = val.params.empid;
+    const id = {_id : empID}; 
+    await mongoose.connect(connectionString);
+    const result = await Employee.findById(id);
+    return NextResponse.json({success : true,result})
 }
