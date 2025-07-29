@@ -8,3 +8,10 @@ export const GET = async () => {
     const empData = await Employee.find();
     return NextResponse.json({success : empData})
 }
+export const POST = async (req) => {
+    await mongoose.connect(connectionString);
+    const myReq = await req.json();
+    const employee = new Employee(myReq);
+    const response = await employee.save();
+    return NextResponse.json({result : response});
+}
