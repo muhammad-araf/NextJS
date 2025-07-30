@@ -10,6 +10,11 @@ const page = () => {
             body : JSON.stringify({name,age})
         })
         data = await data.json();
+        if(data.success){
+          alert("Your Data has been added")
+        }else{
+          alert("Try again...")
+        }
         console.log(data)
 
     }

@@ -13,5 +13,5 @@ export const POST = async (req) => {
     const myReq = await req.json();
     const employee = new Employee(myReq);
     const response = await employee.save();
-    return NextResponse.json({result : response});
+    return NextResponse.json({success : true ,result : response});
 }

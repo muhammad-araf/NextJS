@@ -1,5 +1,6 @@
 'use client'
 import { Chiron_Sung_HK } from 'next/font/google'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 const page = () => {
@@ -76,6 +77,7 @@ const page = () => {
             
         </thead>
     </table>
+    <Link href={'/manipulatedata/send'}>Add</Link>
     {
         edit? <>
             <input type='text' placeholder='Enter your name' value={name} onChange={(e)=>setName(e.target.value)}/><br/><br/>
