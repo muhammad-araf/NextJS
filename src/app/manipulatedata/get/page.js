@@ -24,7 +24,18 @@ const page = () => {
         setName(data[i].name);
         setAge(data[i].age)
     }
-    const handleData = async () => {
+    const deleteData = async (myID) => {
+        let response = await fetch(`http://localhost:3000/api/db-env/${myID}`,{
+            method:'DELETE'
+        })
+        response = await response.json();
+        if(response.success){
+            alert("Your Data has been deleted");
+        }else{
+            alert("Try Again...")
+        }
+    }
+    const handleData = async (id) => {
         let response = await fetch(`http://localhost:3000/api/db-env/${id}`,{
             method:'PUT',
             body : JSON.stringify({name,age})
@@ -58,7 +69,7 @@ const page = () => {
             <tr key={i}>
                 <td>{item.name}</td>
                 <td>{item.age}</td>
-                <td><button onClick={()=>EditData(i,item._id)}>Edit</button></td>
+                <td><button onClick={()=>EditData(i,item._id)}>Edit</button><span>  </span><button onClick={()=>deleteData(item._id)}>Delete</button></td>
             </tr>)
             })
             }
